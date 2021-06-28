@@ -2,7 +2,7 @@
 /**
  * _strlen - find the length of a string
  * @s: pointer to the string to check
- * Return: void
+ * Return: length of the string passed to it
 */
 
 
