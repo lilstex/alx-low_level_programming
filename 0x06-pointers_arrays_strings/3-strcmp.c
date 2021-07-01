@@ -1,6 +1,4 @@
-  
-#include "holberton.h"
-
+  #include "holberton.h"
 /**
  * _strcmp - Compares s1 and s2
  *
