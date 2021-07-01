@@ -1,4 +1,3 @@
-  
 #include "holberton.h"
 /**
  * print_number - prints a number
