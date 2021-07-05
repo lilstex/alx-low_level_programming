@@ -9,21 +9,21 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int index, sum1 = 0, sum2 = 0;
+	int i, sideA = 0, sideB = 0;
 
-	for (index = 0; index < size; index++)
+	for (i = 0; i < size; i++)
 	{
-		sum1 += a[index];
+		sideA += a[i];
 		a += size;
 	}
 
 	a -= size;
 
-	for (index = 0; index < size; index++)
+	for (i = 0; i < size; i++)
 	{
-		sum2 += a[index];
+		sideB += a[i];
 		a -= size;
 	}
 
-	printf("%d, %d\n", sum1, sum2);
+	printf("%d, %d\n", sideA, sideB);
 }
