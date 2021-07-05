@@ -1,9 +1,9 @@
 #include "holberton.h"
 
 /**
- * set_string - Sets the value of a pointer to a char.
- * @s: The pointer.
- * @to: The char.
+ * set_string - sets the value of a pointer to a char.
+ * @s: double pointer to be copied
+ * @to: where s gets set to
  */
 void set_string(char **s, char *to)
 {
