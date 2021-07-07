@@ -1,31 +1,47 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * is_prime_number - check if n is a prime number
- * @n: int
- * Return: 0 or 1
+ * is_divisible - Checks if a number is divisible.
+ * @num: The number to be checked.
+ * @div: The divisor.
+ *
+ * Return: If the number is divisible - 0.
+ *         If the number is not divisible - 1.
  */
 
+
+int is_divisible(int num, int div);
+int is_prime_number(int n);
+
+int is_divisible(int num, int div)
+{
+	if (num % div == 0)
+		return (0);
+
+	if (div == num / 2)
+		return (1);
+
+	return (is_divisible(num, div + 1));
+}
+
+
+/**
+ * is_prime_number - Checks if a number is prime.
+ * @n: The number to be checked.
+ *
+ * Return: If the integer is not prime - 0.
+ *         If the number is prime - 1.
+ */
 
 int is_prime_number(int n)
 {
-return (check_prime(n, 2));
-}
+	int div = 2;
 
-/**
- * check_prime - check all number < n if they can divide it
- * @n: int
- * @resp: int
- * Return: int
- */
+	if (n <= 1)
+		return (0);
 
-int check_prime(int n, int resp)
-{
+	if (n >= 2 && n <= 3)
+		return (1);
 
-if (resp >= n && n > 1)
-	return (1);
-else if (n % resp == 0 || n <= 1)
-	return (0);
-else
-	return (check_prime(n, resp + 1));
+	return (is_divisible(n, div));
 }
