@@ -1,51 +1,65 @@
 #include "holberton.h"
 
 /**
- * last_index - returns the last index of a string (counts the null char)
- * @s: pointer the string
- * Return: int
+ * find_strlen - Returns the length of a string.
+ * @s: The string to be measured.
+ *
+ * Return: The length of the string.
  */
 
-int last_index(char *s)
+int find_strlen(char *s);
+int check_palindrome(char *s, int len, int index);
+int is_palindrome(char *s);
+
+int find_strlen(char *s)
 {
-int n = 0;
+	int len = 0;
 
-if (*s > '\0')
-	n += last_index(s + 1) + 1;
+	if (*(s + len))
+	{
+		len++;
+		len += find_strlen(s + len);
+	}
 
-return (n);
+	return (len);
 }
 
 /**
- * is_palindrome - check if a string is a palindrome
- * @s: string to check
- * Return: 0 or 1
+ * check_palindrome - Checks if a string is a palindrome.
+ * @s: The string to be checked.
+ * @len: The length of s.
+ * @index: The index of the string to be checked.
+ *
+ * Return: If the string is a palindrome - 1.
+ *         If the string is not a palindrome - 0.
+ */
+
+int check_palindrome(char *s, int len, int index)
+{
+	if (s[index] == s[len / 2])
+		return (1);
+
+	if (s[index] == s[len - index - 1])
+		return (check_palindrome(s, len, index + 1));
+
+	return (0);
+}
+
+/**
+ * is_palindrome - Checks if a string is a palindrome.
+ * @s: The string to be checked.
+ *
+ * Return: If the string is a palindrome - 1.
+ *         If the string is not a palindrome - 0.
  */
 
 int is_palindrome(char *s)
 {
-int end = last_index(s);
+	int index = 0;
+	int len = find_strlen(s);
 
-return (check(s, 0, end - 1, end % 2));
-}
+	if (!(*s))
+		return (1);
 
-/**
- * check - checker for the palindrome
- * @s: string
- * @start: int moves from right to left
- * @end: int moves from left to right
- * @pair: int
- * Return: 0 or 1
- */
-
-
-int check(char *s, int start, int end, int pair)
-{
-
-if ((start == end && pair != 0) || (start == end + 1 && pair == 0))
-	return (1);
-else if (s[start] != s[end])
-	return (0);
-else
-	return (check(s, start + 1, end - 1, pair));
+	return (check_palindrome(s, len, index));
 }
