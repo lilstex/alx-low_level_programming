@@ -1,6 +1,13 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
 
+/*
+ * File: holberton.h
+ * Auth: Brennan D Baraban
+ * Desc: Header file containing the prototypes of all functions
+ *       included in the static library libholberton.a.
+ */
+
 int _putchar(char c);
 int _islower(int c);
 int _isalpha(int c);
@@ -21,13 +28,5 @@ char *_strchr(char *s, char c);
 unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
-void reverse_array(int *a, int n);
-char *string_toupper(char *);
-char *cap_string(char *);
-char *leet(char *);
-char *rot13(char *);
-void print_number(int n);
-char *infinite_add(char *n1, char *n2, char *r, int size_r);
-void print_buffer(char *b, int size);
 
 #endif
