@@ -1,0 +1,480 @@
+!<arch>
+0-isupper.c/    0           0     0     644     183       `
+#include "holberton.h"
+
+/**
+ * _isupper - check for upper case letter
+ * @c : character to check the case
+ * Return:0 or 1
+ */
+
+int _isupper(int c)
+{
+	return (c >= 65 && c <= 90);
+
+}
+
+0-memset.c/     0           0     0     644     297       `
+#include "holberton.h"
+
+/**
+ * *_memset - fills memory with a constant byte.
+ * @s: pointer to put the constant
+ * @b: constant
+ * @n: max bytes to use
+ * Return: s
+ */
+
+
+char *_memset(char *s, char b, unsigned int n)
+{
+unsigned int i;
+
+for (i = 0; n > 0 ; i++, n--)
+{
+	s[i] = b;
+}
+
+return (s);
+}
+
+0-strcat.c/     0           0     0     644     415       `
+#include "holberton.h"
+/**
+ *_strcat -  concatenates two strings
+ *@dest: A pointer to an char that will be updated
+ *@src: A pointer to an char that will be updated
+ *Return: dest
+ */
+
+char *_strcat(char *dest, char *src)
+{
+	int i, j;
+
+	i = 0;
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
+
+	j = 0;
+	while (src[j] != '\0')
+	{
+		dest[i] = src[j];
+		j++;  /*sum j*/
+		i++; /**sum i*/
+	}
+
+	dest[i] = '\0';
+
+	return (dest);
+}
+
+1-isdigit.c/    0           0     0     644     204       `
+#include "holberton.h"
+
+/**
+* _isdigit - returns 1 if c is uppercase
+* @c: integer to be tested
+* Return: 1 or 0
+*/
+
+int _isdigit(int c)
+{
+if (c >= '0' && c <= '9')
+{
+return (1);
+}
+else
+{
+return (0);
+}
+}
+1-memcpy.c/     0           0     0     644     304       `
+#include "holberton.h"
+
+/**
+ * _memcpy - copies memory area
+ * @dest: destination string
+ * @src: source string
+ * @n: number of bytes to be copied
+ * Return: pointer to dest
+ */
+char *_memcpy(char *dest, char *src, unsigned int n)
+{
+	char *ptr = dest;
+
+	while (n--)
+		*dest++ = *src++;
+	return (ptr);
+}
+1-strncat.c/    0           0     0     644     487       `
+#include "holberton.h"
+/**
+ *_strncat -  concatenates two strings
+ *@dest: A pointer to an char that will be updated
+ *@src: A pointer to an char that will be updated
+ *@n: value
+ *Return: dest
+ */
+
+char *_strncat(char *dest, char *src, int n)
+
+{
+	int i, j;
+
+	i = 0;
+	while (dest[i] != '\0') /*WHILE count character */
+	{
+		i++;
+	}
+
+	j = 0;
+	while (j < n && src[j] != '\0') /*WHILE concatenate dest with src*/
+	{
+		dest[i] = src[j];
+		j++;
+		i++;
+	}
+
+	dest[i] = '\0';
+
+	return (dest);
+}
+
+2-strchr.c/     0           0     0     644     353       `
+#include "holberton.h"
+#include <stdio.h>
+
+/**
+ * _strchr - locates a character in a string
+ * @s: string to be searched
+ * @c: target char
+ * Return: pointer to first occurrence of c or NULL if char not found
+ */
+char *_strchr(char *s, char c)
+{
+
+	while (*s)
+	{
+		if (c == *s)
+		{
+			return (s);
+		}
+		s++;
+	}
+	if (!c)
+		return (s);
+	return (NULL);
+
+}
+
+2-strlen.c/     0           0     0     644     195       `
+#include "holberton.h"
+/**
+ * _strlen - find the length of a string
+ * @s: pointer to the string to check
+ * Return: void
+*/
+
+
+int _strlen(char *s)
+{
+int i = 0;
+while (s[i])
+	i++;
+
+return (i);
+}
+
+2-strncpy.c/    0           0     0     644     387       `
+#include "holberton.h"
+/**
+ *_strncpy -  copies a string
+ *@dest: A pointer to an char that will be updated
+ *@src: A pointer to an char that will be updated
+ *@n: value
+ *Return: dest
+ */
+
+char *_strncpy(char *dest, char *src, int n)
+
+{
+	int i;
+
+	i = 0;
+	while (i < n && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+
+	return (dest);
+}
+
+3-islower.c/    0           0     0     644     187       `
+#include "holberton.h"
+/**
+ * _islower - returns 1 if c is lowercase, 0 otherwise
+ * @c: integer to be tested
+ * Return: 1 or 0
+ */
+int _islower(int c)
+{
+	return (c >= 97 && c <= 122);
+}
+
+3-puts.c/       0           0     0     644     237       `
+#include "holberton.h"
+/**
+ * _puts - prints a string, followed by a new line,
+ * @str: pointer to the string to print
+ * Return: void
+*/
+
+
+void _puts(char *str)
+{
+int i = 0;
+while (str[i])
+{
+	_putchar(str[i]);
+	i++;
+}
+_putchar('\n');
+}
+
+3-strcmp.c/     0           0     0     644     302       `
+#include "holberton.h"
+
+/**
+ * _strcmp - Compares s1 and s2
+ *
+ * @s1: String to be compared against s2
+ * @s2: String to be compared against s1
+ * Return: Always 0.
+ */
+int _strcmp(char *s1, char *s2)
+{
+	int i = 0;
+
+	while ((s1[i] == s2[i]) && (s1[i] != '\0'))
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
+}
+3-strspn.c/     0           0     0     644     490       `
+#include "holberton.h"
+
+/**
+ * _strspn - gets the length of a prefix substring
+ * @s: string to be searched
+ * @accept: bytes to be accepted
+ * Return: number to bytes in the initial segment of s
+ */
+unsigned int _strspn(char *s, char *accept)
+{
+	unsigned int res = 0;
+	int i, foundChar;
+
+	while (*s)
+	{
+		for (i = 0; accept[i]; i++)
+		{
+			foundChar = 0;
+			if (*s == accept[i])
+			{
+				res++;
+				foundChar = 1;
+				break;
+			}
+		}
+		if (!foundChar)
+			break;
+		s++;
+	}
+	return (res);
+}
+4-isalpha.c/    0           0     0     644     227       `
+#include "holberton.h"
+/**
+ * _isalpha - returns 1 if c is a letter
+ * @c: integer to be tested
+ * Return: 1 or 0
+ */
+int _isalpha(int c)
+{
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+	{
+		return (1);
+	}
+	return (0);
+}
+
+4-strpbrk.c/    0           0     0     644     408       `
+#include "holberton.h"
+#include <stdio.h>
+
+/**
+ * _strpbrk - searches a string for any of a set of bytes
+ * @s: string to be searched
+ * @accept: bytes to be accepted
+ * Return: pointer to be the byte that matches accept or NULL if not found
+ */
+char *_strpbrk(char *s, char *accept)
+{
+	int i;
+
+	while (*s)
+	{
+		for (i = 0; accept[i]; i++)
+			if (*s == accept[i])
+				return (s);
+		s++;
+	}
+	return (NULL);
+}
+5-strstr.c/     0           0     0     644     775       `
+#include "holberton.h"
+#include <stdlib.h>
+
+#define true 1
+#define false 0
+#define bool int
+
+/**
+ * _strstr - locates a substring
+ * @haystack: string to be searched
+ * @needle: substring to be found
+ * Return: pointer to substring or NULL if not found
+ */
+char *_strstr(char *haystack, char *needle)
+{
+	char *start = haystack;
+	char *_needle = needle;
+	bool found =  false;
+
+	if (!*_needle)
+		return (haystack);
+
+	while (*haystack)
+	{
+		if (*haystack == *needle)
+		{
+			found = true;
+			start = haystack;
+			while (*_needle)
+			{
+				if (*haystack != *_needle)
+				{
+					found = false;
+					_needle = needle;
+					break;
+				}
+
+				haystack++;
+				_needle++;
+			}
+		}
+
+		if (found)
+		{
+			break;
+		}
+
+		haystack++;
+	}
+	if (found)
+	{
+		return (start);
+	}
+
+	return (NULL);
+}
+
+6-abs.c/        0           0     0     644     165       `
+#include "holberton.h"
+/**
+ * _abs - returns absolute value of n
+ * @n: integer to be tested
+ * Return: abs(n)
+ */
+int _abs(int n)
+{
+	return (n < 0 ? -1 * n : n);
+}
+
+9-strcpy.c/     0           0     0     644     396       `
+#include "holberton.h"
+
+/**
+ * *_strcpy -  copies the string pointed to by src
+ * @dest: char type string
+ * @src: char type string
+ * Description: Copy the string pointed to by pointer `src` to
+ * the buffer pointed to by `dest`
+ * Return: Pointer to `dest`
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	int i = -1;
+
+	do {
+		i++;
+		dest[i] = src[i];
+	} while (src[i] != '\0');
+
+	return (dest);
+}
+100-atoi.c/     0           0     0     644     626       `
+#include "holberton.h"
+
+/**
+ * is_numerical - Check if is a digit
+ * @n: Number
+ * Return: If is a number, return 1 else return 0
+ */
+int is_numerical(unsigned int n)
+{
+	return (n >= '0' && n <= '9');
+}
+
+/**
+ * _atoi - Convert a string to a number
+ * @s: String
+ * Return: Return the num
+ */
+int _atoi(char *s)
+{
+	unsigned int number, i;
+	int sign;
+
+	sign = 1;
+	number = 0;
+
+	/*Start FOR*/
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (is_numerical(s[i])) /*Condition*/
+		{
+			number = (s[i] - 48)  + number * 10;
+
+			if (s[i + 1] == ' ')
+				break;
+		}
+		else if (s[i] == '-')
+		{
+			sign *= -1;
+		}
+
+	}
+
+	return (number * sign);
