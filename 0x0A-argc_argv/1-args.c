@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "holberton.h"
 
 /**
@@ -6,9 +7,10 @@
 * @argv: argument vector
 * Return: 0
 */
+
 int main(int argc, char *argv[])
 {
-	printf("%d\n", argc - 1);
-
-	return (0);
+(void) argv;
+printf("%i\n", argc - 1);
+return (0);
 }
