@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "holberton.h"
 
 /**
@@ -6,6 +7,7 @@
 * @argv: argument vector
 * Return: 0
 */
+
 int main(int argc, char *argv[])
 {
 	int i;
