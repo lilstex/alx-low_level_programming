@@ -3,9 +3,11 @@
 #include <stdlib.h>
 
 /**
- * returnCents - calculates the min number of coins needed to make change given
- * @n: target change value
- * Return: min num of coins
+ * main - prints the minimum number of coins to
+ * make change for an amount of money
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: 0 if no errors
  */
 int main(int argc, char *argv[])
 {
