@@ -2,21 +2,6 @@
 #include "holberton.h"
 
 /**
- * _strlen - returns the length of a string
- * @s: string s
- * Return: length of string
- */
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (*s++)
-		len++;
-
-	return (len);
-}
-
-/**
  * argstostr - concatenates all the arguments of your program
  * @ac: argument count
  * @av: argument vector
@@ -24,30 +9,34 @@ int _strlen(char *s)
  */
 char *argstostr(int ac, char **av)
 {
-	int i, j, len, total;
-	int m = 0;
-	char *ptr;
+	char *str;
+	int arg, byte, index, size = ac;
 
-	if (!ac || !av)
+	if (ac == 0 || av == NULL)
 		return (NULL);
-	total = 0;
-	for (i = 0; i < ac; i++)
+
+	for (arg = 0; arg < ac; arg++)
 	{
-		len = _strlen(av[i]) + 1;
-		total += len;
+		for (byte = 0; av[arg][byte]; byte++)
+			size++;
 	}
-	ptr = malloc(sizeof(char) * total + 1);
-	if (!ptr)
+
+	str = malloc(sizeof(char) * size + 1);
+
+	if (str == NULL)
 		return (NULL);
-	for (i = 0; i < ac; i++)
+
+	index = 0;
+
+	for (arg = 0; arg < ac; arg++)
 	{
-		len = _strlen(av[i]);
-		for (j = 0; j < len; j++, m++)
-		{
-			ptr[m] = av[i][j];
-		}
-		ptr[m++] = '\n';
+		for (byte = 0; av[arg][byte]; byte++)
+			str[index++] = av[arg][byte];
+
+		str[index++] = '\n';
 	}
-	ptr[m] = '\0';
-	return (ptr);
+
+	str[size] = '\0';
+
+	return (str);
 }
